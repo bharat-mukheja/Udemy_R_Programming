@@ -4,47 +4,47 @@ expenses <- c(12051.82, 5695.07, 12319.20, 12089.72, 8658.57, 840.20, 3285.73, 5
 
 #Solution
 #Calculate Profit As The Differences Between Revenue And Expenses
-profit <- _ - _
+profit <- revenue - expenses
 profit
 
 #Calculate Tax As 30% Of Profit And Round To 2 Decimal Points
-tax <- round(0.30 * _, _)
+tax <- round(0.30 * profit, 2)
 tax 
 
 #Calculate Profit Remaining After Tax Is Deducted
-profit.after.tax <- _ - _
+profit.after.tax <- profit - tax
 profit.after.tax
 
 #Calculate The Profit Margin As Profit After Tax Over Revenue
 #Round To 2 Decimal Points, Then Multiply By 100 To Get %
-profit.margin <- _(_ / _, 2) * _
+profit.margin <- round(profit.after.tax / revenue, 2) * 100
 profit.margin
 
 #Calculate The Mean Profit After Tax For The 12 Months
-mean_pat <- _(profit.after.tax)
+mean_pat <- mean(profit.after.tax)
 mean_pat
 
 #Find The Months With Above-Mean Profit After Tax
-good.months <- _ _ mean_pat
+good.months <- profit > mean_pat
 good.months
 
 #Bad Months Are The Opposite Of Good Months !
-bad.months <- _good.months
+bad.months <- !good.months
 bad.months
 
 #The Best Month Is Where Profit After Tax Was Equal To The Maximum
-best.month <- profit.after.tax == _(profit.after.tax)
+best.month <- profit.after.tax == max(profit.after.tax)
 best.month
 
 #The Worst Month Is Where Profit After Tax Was Equal To The Minimum
-worst.month <- _ == _(_)
+worst.month <- profit.after.tax == min(profit.after.tax)
 worst.month
 
 #Convert All Calculations To Units Of One Thousand Dollars
 revenue.1000 <- round(revenue / 1000, 0)
-expenses.1000 <- _(_ _ _, _)
-profit.1000 <- _(_ _ _, _)
-profit.after.tax.1000 <- _(_ _ _, _)
+expenses.1000 <- round(expenses / 1000, 0)
+profit.1000 <- round(profit / 1000, 0)
+profit.after.tax.1000 <- round(profit.after.tax / 1000, 0)
 
 #Print Results
 revenue.1000
@@ -72,5 +72,5 @@ M <- rbind(
 )
 
 #Print The Matrix
-_
+M
 
