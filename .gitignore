@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
+diamonds_dataset.csv
+.DS_Store
